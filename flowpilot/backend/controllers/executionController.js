@@ -18,7 +18,7 @@ exports.getExecutions = async (req, res, next) => {
       .populate('workflow_id', 'name version')
       .populate('triggered_by', 'name email')
       .sort({ createdAt: -1 })
-      .limit(limit)
+      .limit(limit) 
       .skip((page - 1) * limit);
 
     const count = await Execution.countDocuments(query);
