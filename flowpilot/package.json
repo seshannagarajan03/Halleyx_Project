@@ -1,0 +1,11 @@
+{
+  "name": "flowpilot",
+  "private": true,
+  "version": "1.0.0",
+  "description": "FlowPilot monorepo for workflow automation challenge submission",
+  "scripts": {
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "test": "cd backend && node ./node_modules/jest/bin/jest.js --runInBand"
+  }
+}

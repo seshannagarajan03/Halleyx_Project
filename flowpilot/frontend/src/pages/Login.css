@@ -1,0 +1,143 @@
+.login-container {
+  min-height: 100vh;
+  background-color: var(--slate-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.login-card {
+  max-width: 28rem; /* 448px */
+  width: 100%;
+  background-color: var(--white);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.login-header {
+  background-color: var(--primary-600);
+  padding: 2rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.login-brand-icon {
+  display: inline-block;
+  padding: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-xl);
+  margin-bottom: 1rem;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  color: var(--primary-100);
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.login-form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-error {
+  padding: 0.75rem;
+  background-color: var(--error-bg);
+  color: var(--error);
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-lg);
+  font-size: 0.875rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--slate-500);
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--slate-400);
+}
+
+.login-input {
+  width: 100%;
+  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--slate-200);
+  outline: none;
+  font-size: 0.875rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.login-input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+.login-submit-btn {
+  width: 100%;
+  background-color: var(--primary-600);
+  color: var(--white);
+  font-weight: 700;
+  padding: 0.75rem;
+  border-radius: var(--radius-xl);
+  border: none;
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.2);
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.login-submit-btn:hover {
+  background-color: var(--primary-700);
+}
+
+.login-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.login-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.login-footer {
+  text-align: center;
+}
+
+.demo-text {
+  font-size: 0.75rem;
+  color: var(--slate-400);
+}
+
+.demo-credentials {
+  color: var(--slate-700);
+  font-weight: 500;
+  font-style: italic;
+}

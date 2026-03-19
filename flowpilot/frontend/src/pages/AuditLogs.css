@@ -1,0 +1,10 @@
+.empty-table-msg {
+  text-align: center;
+  padding: 3rem !important;
+  color: var(--slate-400);
+  font-style: italic;
+}
+
+.data-table tr:hover {
+  background-color: var(--slate-50);
+}
