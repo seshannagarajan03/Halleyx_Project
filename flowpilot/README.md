@@ -23,8 +23,7 @@ flowpilot/
 ├── backend/
 ├── frontend/
 ├── Dockerfile
-├── README.md
-└── SUBMISSION_CHECKLIST.md
+└── README.md
 ```
 
 ## Setup
