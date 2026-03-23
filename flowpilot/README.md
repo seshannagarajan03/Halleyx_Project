@@ -1,4 +1,4 @@
-# 🚀 FlowPilot  
+# FlowPilot  
 ### Rule-Driven Workflow Automation Platform
 
 FlowPilot is a full-stack workflow automation platform developed for the **Halleyx Full Stack Engineer Challenge**. It enables users to design, execute, and monitor dynamic business workflows using configurable steps and rule-based routing.
@@ -7,7 +7,7 @@ The system simulates real-world approval workflows such as expense approvals and
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 FlowPilot automates manual business processes by:
 - defining workflows dynamically  
@@ -19,7 +19,7 @@ FlowPilot automates manual business processes by:
 
 ---
 
-## ✨ Key Features
+## Key Features
 
 - JWT-based authentication  
 - Workflow, Step, Rule CRUD  
@@ -33,14 +33,14 @@ FlowPilot automates manual business processes by:
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 Frontend: React, Vite, React Query, Redux Toolkit, Axios  
 Backend: Node.js, Express, MongoDB, Mongoose, Socket.io, Winston  
 
 ---
 
-## ▶️ Setup Instructions
+## Setup Instructions
 
 ### Backend
 cd backend  
@@ -57,19 +57,19 @@ npm run dev
 
 ---
 
-## 🔐 Demo Credentials
+## Demo Credentials
 
 Admin: admin@flowpilot.app / password123  
 Manager: manager@flowpilot.app / password123  
 
 ---
 
-## 🎬 Demo Video
+## Demo Video
 
 ./Flowpilot Project Demo.mp4
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 Seshan Nagarajan
