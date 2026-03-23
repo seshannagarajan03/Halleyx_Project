@@ -1,124 +1,230 @@
-# FlowPilot
+#  FlowPilot  
+### Rule-Driven Workflow Automation Platform
 
-FlowPilot is a rule-driven workflow automation platform built for the Halleyx Full Stack Engineer challenge. It lets users create workflows, define steps and rules, execute workflows from JSON payloads, pause for approvals, resume or retry failed flows, and inspect execution logs in real time.
+FlowPilot is a full-stack workflow automation platform developed for the Halleyx Full Stack Engineer Challenge. It enables users to design, execute, and monitor dynamic business workflows using configurable steps and rule-based routing.
 
-## Core features
-- Workflow CRUD with pagination, search, and versioning
-- Step CRUD and rule CRUD
-- Rule evaluation with priority ordering and `DEFAULT` fallback
-- Execution engine supporting task, approval, and notification steps
-- Resume pending approvals, retry failed executions, and cancel active executions
-- Execution history and audit log view
-- JWT authentication with role-based access control
-- Seeded demo users and workflows for reviewer testing
+The system simulates real-world approval workflows such as expense approvals and leave requests with full execution tracking, approval control, and audit logging.
 
-## Tech stack
-- **Frontend:** React, Vite, React Query, Redux Toolkit, Axios, Socket.io Client
-- **Backend:** Node.js, Express, MongoDB, Mongoose, Socket.io, Winston
-- **Testing:** Jest unit tests for the rule engine and validation logic
+---
 
-## Project structure
-```text
+##  Project Overview
+
+FlowPilot is designed to automate manual business processes by:
+- defining workflows dynamically  
+- configuring steps and conditional rules  
+- executing workflows using structured JSON inputs  
+- pausing execution for approvals  
+- resuming or retrying workflows  
+- maintaining complete execution logs and audit history  
+
+---
+
+##  Key Features
+
+- JWT-based authentication with role-based access  
+- Workflow CRUD (Create, Read, Update, Delete)  
+- Step CRUD and Rule CRUD  
+- Rule engine with priority ordering and DEFAULT fallback  
+- Workflow execution engine  
+- Approval pause and resume  
+- Retry failed executions  
+- Cancel active executions  
+- Execution logs and audit history  
+- Search, filter, pagination  
+- Pre-seeded demo workflows and users  
+
+---
+
+##  Tech Stack
+
+### Frontend
+- React  
+- Vite  
+- React Query  
+- Redux Toolkit  
+- Axios  
+- Socket.io Client  
+
+### Backend
+- Node.js  
+- Express.js  
+- MongoDB  
+- Mongoose  
+- Socket.io  
+- Winston Logger  
+
+---
+
+##  System Architecture
+
+Frontend (React)  
+↓  
+Backend (Node.js + Express)  
+↓  
+MongoDB Database  
+
+---
+
+##  Project Structure
+
 flowpilot/
 ├── backend/
 ├── frontend/
 ├── Dockerfile
 └── README.md
-```
 
-## Setup
-### 1) Backend
-```bash
-cd backend
-cp .env.example .env
-npm install
-node seed.js
-npm run dev
-```
+---
 
-### 2) Frontend
-```bash
-cd frontend
-cp .env.example .env
-npm install
-npm run dev
-```
+##  Setup Instructions
 
-## Demo credentials
-- **Admin:** `admin@flowpilot.app` / `password123`
-- **Manager:** `manager@flowpilot.app` / `password123`
+### Backend
 
-## Sample workflows
+cd backend  
+cp .env.example .env  
+npm install  
+node seed.js  
+npm run dev  
+
+### Frontend
+
+cd frontend  
+cp .env.example .env  
+npm install  
+npm run dev  
+
+---
+
+##  Demo Credentials
+
+Admin  
+admin@flowpilot.app / password123  
+
+Manager  
+manager@flowpilot.app / password123  
+
+---
+
+##  Sample Workflows
+
 ### Expense Approval
-Required payload fields:
-- `employee_name`
-- `employee_email`
-- `department`
-- `expense_type`
-- `amount`
-- `country`
-- `priority`
-- `submitted_at`
 
-Flow logic:
-- if `amount > 100`, manager approval is required
-- otherwise the workflow finishes after notification
+Required Fields:
+- employee_name  
+- employee_email  
+- department  
+- expense_type  
+- amount  
+- country  
+- priority  
+- submitted_at  
+
+Logic:
+- amount > 100 → approval  
+- DEFAULT → notification  
+
+---
 
 ### Leave Request Approval
-Required payload fields:
-- `employee_name`
-- `employee_email`
-- `department`
-- `leave_type`
-- `leave_days`
-- `country`
-- `priority`
-- `submitted_at`
 
-Flow logic:
-- if `leave_days > 3`, manager approval is required
-- otherwise HR notification completes the workflow
+Required Fields:
+- employee_name  
+- employee_email  
+- department  
+- leave_type  
+- leave_days  
+- country  
+- priority  
+- submitted_at  
 
-## API overview
-- `POST /api/auth/register`
-- `POST /api/auth/login`
-- `GET /api/workflows`
-- `POST /api/workflows`
-- `GET /api/workflows/:id`
-- `PUT /api/workflows/:id`
-- `DELETE /api/workflows/:id`
-- `GET /api/workflows/:workflow_id/steps`
-- `POST /api/workflows/:workflow_id/steps`
-- `PUT /api/steps/:id`
-- `DELETE /api/steps/:id`
-- `GET /api/steps/:step_id/rules`
-- `POST /api/steps/:step_id/rules`
-- `PUT /api/rules/:id`
-- `DELETE /api/rules/:id`
-- `POST /api/workflows/:workflow_id/execute`
-- `GET /api/executions`
-- `GET /api/executions/:id`
-- `POST /api/executions/:id/resume`
-- `POST /api/executions/:id/retry`
-- `POST /api/executions/:id/cancel`
+Logic:
+- leave_days > 3 → approval  
+- DEFAULT → notification  
 
-## Manual demo flow
-1. Log in with the seeded admin account.
-2. Open **Workflow Library**.
-3. Create a workflow or edit an existing one.
-4. Add steps and rules.
-5. Open **Execute** for a workflow and start an execution with valid payload values.
-6. Resume approval when the workflow pauses.
-7. Open **Execution History** and inspect the logs.
+---
 
-## Notes for evaluation
-- Updating a workflow creates a **new version** and deactivates the previous one.
-- Rules are validated before save.
-- Invalid rule evaluation errors are logged and `DEFAULT` fallback is used when configured.
-- Deletion is blocked for workflows that already have execution history.
+##  Execution Flow
 
-## Submission hygiene
-This cleaned package intentionally excludes:
-- `.env` files with secrets
-- `node_modules`
-- runtime log files
+1. Start workflow  
+2. Create execution  
+3. Evaluate rules  
+4. Route to next step  
+5. Pause on approval  
+6. Resume after approval  
+7. Trigger notification  
+8. Complete execution  
+9. Store logs in audit history  
+
+---
+
+##  API Overview
+
+POST /api/auth/register  
+POST /api/auth/login  
+
+GET /api/workflows  
+POST /api/workflows  
+GET /api/workflows/:id  
+PUT /api/workflows/:id  
+DELETE /api/workflows/:id  
+
+GET /api/workflows/:workflow_id/steps  
+POST /api/workflows/:workflow_id/steps  
+
+PUT /api/steps/:id  
+DELETE /api/steps/:id  
+
+GET /api/steps/:step_id/rules  
+POST /api/steps/:step_id/rules  
+
+PUT /api/rules/:id  
+DELETE /api/rules/:id  
+
+POST /api/workflows/:workflow_id/execute  
+GET /api/executions  
+GET /api/executions/:id  
+
+POST /api/executions/:id/resume  
+POST /api/executions/:id/retry  
+POST /api/executions/:id/cancel  
+
+---
+
+##  Demo Video
+
+[Watch Demo](./Flowpilot Project Demo.mp4)
+
+---
+
+##  Notes for Evaluation
+
+- Updating a workflow creates a new version  
+- Previous versions are deactivated  
+- Rules are validated before save  
+- DEFAULT rule used as fallback  
+- Deletion blocked for workflows with execution history  
+
+---
+
+##  Submission Hygiene
+
+This repository excludes:
+- .env files  
+- node_modules  
+- runtime logs  
+
+---
+
+##  Future Enhancements
+
+- Email/SMS notifications  
+- Drag-and-drop workflow builder  
+- Role-based access control  
+- SLA tracking  
+- Analytics dashboard  
+- Multi-tenant support  
+
+---
+
+##  Author
+
+Seshan Nagarajan  
